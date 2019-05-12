@@ -1,0 +1,39 @@
+<p style="font-size:40px;font-weight:bold"> &nbsp;검색 결과 </p>
+
+<table border ="1" width = "1500px">
+{% for po in point %}
+<td width = "330px">
+<center>
+<img src="{{po.ImgUrl}}" alt = "img" width = "320px" height = "250px" >
+</center>
+</td>
+<td width ="300px">
+	<div style="margin-right:10px; margin-left:10px">
+	{% if po.Gender == 'M' %}
+        <p> ● 성별 : 수컷</p>
+	{% elif po.Gender == 'F' %}
+	<p>● 성별 : 암컷 </p>
+	{% else %}
+	<p>● 성별 : 모름 </p>
+	{% endif %}
+	<p>● 지역 : {{po.LostWhere}}</p>
+	<p>● 날짜 : {{po.LostWhen}}</p>
+	</div>
+</td>
+<td width = "750px">
+	<div style="margin-right:20px; margin-left:20px">
+	<p>[상세 설명]</p>
+        <p> {{po.Contents}}</p>
+	</div>
+</td>
+<td width = "120px">
+<center>
+<input type="button" style="width:80px; height:40px; font-size:15px; font-weight:bold" value="자세히" onClick="window.open('{{po.URL}}')">
+</center>
+</td>
+</tr>
+{% endfor %}
+</table>
+
+</br>
+<h1><a href="/">처음 화면으로</a></h1>
